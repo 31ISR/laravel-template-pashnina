@@ -22,7 +22,7 @@ Route::middleware('guest')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::post('/logout', LogoutController::class)->name('logout');
     Route::get('/',[DashboardController::class,'index'])->name('dashboard');
-    Route::resource('categories', CategoryController::class);
+    Route::resource('categories', CategoryController::class)->except(['show']);
     Route::resource('tasks', TaskController::class);
 });
 
